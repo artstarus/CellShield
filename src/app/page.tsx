@@ -1,9 +1,11 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
-import { Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
 import Phone from "@/components/Phone";
 import { Icons } from "@/components/Icons";
 import { Reviews } from "@/components/Reviews";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -90,16 +92,15 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny, almost imperceptible mark on the edge, 
-                <span className="p-0.5 bg-slate-800 text-white"> it still looks pristine after six months.</span> I'm genuinely impressed."
+                  "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny, almost imperceptible mark on the edge, <span className="p-0.5 bg-slate-800 text-white">it still looks pristine after six months.</span> I'm genuinely impressed."
                 </p>
               </div>
               <div className="flex mt-2 gap-4">
-                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover"/>
+                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
                 <div className="flex flex-col">
                   <p className="font-semibold">Theodore</p>
                   <div className="flex items-center gap-1.5 text-zinc-600">
-                    <Check className="w-4 h-4 stroke-[3px] text-blue-600"/>
+                    <Check className="w-4 h-4 stroke-[3px] text-blue-600" />
                     <p className="text-sm">Verified Purchase</p>
                   </div>
                 </div>
@@ -117,17 +118,16 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                "I’ve tried several phone cases, but this one stands out. It offers excellent grip and feels really durable without being bulky. 
-                <span className="p-0.5 bg-slate-800 text-white"> The design is sleek and complements my phone perfectly.</span> It still looks as sharp as the day I bought it. Even after 
-                several months of daily use, I'm really satisfied with it."
+                  "I’ve tried several phone cases, but this one stands out. It offers excellent grip and feels really durable without being bulky. <span className="p-0.5 bg-slate-800 text-white">The design is sleek and complements my phone perfectly.</span> It still looks as sharp as the day I bought it. Even after
+                  several months of daily use, I'm really satisfied with it."
                 </p>
               </div>
               <div className="flex mt-2 gap-4">
-                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover"/>
+                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
                 <div className="flex flex-col">
                   <p className="font-semibold">Daniel</p>
                   <div className="flex items-center gap-1.5 text-zinc-600">
-                    <Check className="w-4 h-4 stroke-[3px] text-blue-600"/>
+                    <Check className="w-4 h-4 stroke-[3px] text-blue-600" />
                     <p className="text-sm">Verified Purchase</p>
                   </div>
                 </div>
@@ -139,6 +139,54 @@ export default function Home() {
         <div className="pt-16">
           <Reviews />
         </div>
+      </section>
+
+      <section>
+        <MaxWidthWrapper className="py-24">
+          <div className="mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload a photo and create <span className="relative px-2 text-white bg-blue-600"> your own personalized</span> case
+              </h2>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40">
+              <img src="/arrow.png" alt="arrow image" className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0"/>
+              <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <img src="/noimage.png" alt="user image" className="object-cover rounded-md bg-white shadow-2xl ring-1 ring-gray-900/10 w-full h-full"/>
+              </div>
+              <Phone className="w-60" imgSrc="/noimage.png"/>
+            </div>
+          </div>
+
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+            <li className="w-fit">
+              <Check className="w-5 h-5 text-blue-600 inline mr-1.5" />
+              High-quality Thermoplastic Elastomer slipcover
+            </li>
+            <li className="w-fit">
+              <Check className="w-5 h-5 text-blue-600 inline mr-1.5" />
+              MagSafe compatible charging
+            </li>
+            <li className="w-fit">
+              <Check className="w-5 h-5 text-blue-600 inline mr-1.5" />
+              DROP+ | 3X as many drops as military standard
+            </li>
+            <li className="w-fit">
+              <Check className="w-5 h-5 text-blue-600 inline mr-1.5" />
+              Made with more than 35% recycled plastic
+            </li>
+            <li className="w-fit">
+              <Check className="w-5 h-5 text-blue-600 inline mr-1.5" />
+              5 year print warranty
+            </li>
+            <div className="flex justify-center">
+              <Link href="/configure/upload" className={buttonVariants({size: "lg", className: "mx-auto mt-8"})}> Customize your case now <ArrowRight className="w-4 h-4 ml-1.5"/> </Link>
+            </div>
+          </ul>
+        </MaxWidthWrapper>
       </section>
 
     </div>
