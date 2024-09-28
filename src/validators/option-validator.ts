@@ -42,7 +42,7 @@ export const MODELS = {
 } as const;
 
 export const MATERIALS = {
-  name: "materials",
+  name: "material",
   options: [
     {
       label: "Silicone",
@@ -60,7 +60,7 @@ export const MATERIALS = {
 } as const;
 
 export const FINISHES = {
-  name: "finishes",
+  name: "finish",
   options: [
     {
       label: "Smooth Finish",
