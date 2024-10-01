@@ -1,9 +1,27 @@
-import React from 'react'
+import { db } from "@/db"
+import { notFound } from "next/navigation"
+import DesignPreview from "./DesignPreview"
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+interface PageProps {
+    [key: string]: string | string[] | undefined
 }
 
-export default page
+const Page = async ({ searchParams }: PageProps) => {
+    const { id } = searchParams
+
+    if (!id || typeof id !== "string") {
+        return notFound()
+    }
+
+    const configuration = await db.configuration.findUnique({
+        where: {id},
+    })
+
+    if(!configuration) {
+        return notFound()
+    }
+
+    return <DesignPreview configuration={configuration} />
+}
+
+export default Page
