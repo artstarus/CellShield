@@ -1,9 +1,11 @@
 import Phone from "@/components/Phone"
+import { Button } from "@/components/ui/button"
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products"
 import { cn, formatPrice } from "@/lib/utils"
 import { COLORS, MODELS } from "@/validators/option-validator"
 import { Configuration } from "@prisma/client"
-import { Check } from "lucide-react"
+import { useMutation } from "@tanstack/react-query"
+import { ArrowRight, Check } from "lucide-react"
 import { useEffect, useState } from "react"
 import Confetti from "react-dom-confetti"
 
@@ -15,7 +17,21 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
     const { color, model, finish, material } = configuration
 
     const tw = COLORS.find((supportedColor) => supportedColor.value === color)?.tw
-    const { label: modellabel } = MODELS.options.find(({ value }) => value === model)!
+    const { label: modelLabel } = MODELS.options.find(({ value }) => value === model)!
+
+    let totalPrice = BASE_PRICE
+    if (material === "polycarbonate") {
+        totalPrice += PRODUCT_PRICES.material.polycarbonate
+    }
+    if (finish === "textured") {
+        totalPrice += PRODUCT_PRICES.finish.textured
+    }
+
+    const {} = useMutation({
+        mutationKey: ["get-checkout-session"],
+        mutationFn:
+    })
+
 
     return (
         <>
@@ -28,7 +44,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                     <Phone imgSrc={configuration.croppedImageUrl!} className={cn(`bg-${tw}`)} />
                 </div>
                 <div className="mt-6 sm:col-span-9 sm:mt-0 md:row-end-1">
-                    <h3 className="font-bold text-3xl tracking-tight text-gray-900">Your {modellabel} Case</h3>
+                    <h3 className="font-bold text-3xl tracking-tight text-gray-900">Your {modelLabel} Case</h3>
                     <div className="flex items-center mt-3 gap-1.5 text-base">
                         <Check className="w-4 h-4 text-blue-500" />
                         Available and ready for immediate shipment!
@@ -79,8 +95,18 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                                     </div>
                                 ) : null}
 
-                                
+                                <div className="my-2 h-px bg-gray-200"/>
+                                <div className="flex items-center justify-between py-2">
+                                    <p className="font-semibold text-gray-900">Order Total</p>
+                                    <p className="font-semibold text-gray-900">{formatPrice(totalPrice / 100)}</p>
+                                </div>
                             </div>
+                        </div>
+
+                        <div className="flex justify-end mt-8 pb-12">
+                                <Button className="px-4 sm:px-6 lg:px-8"> 
+                                    Check out <ArrowRight className="w-4 h-4 ml-1.5 inline"/>
+                                </Button>
                         </div>
                     </div>
                 </div>
