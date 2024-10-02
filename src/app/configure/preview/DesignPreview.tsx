@@ -1,20 +1,21 @@
 import Phone from "@/components/Phone"
-import { cn } from "@/lib/utils"
+import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products"
+import { cn, formatPrice } from "@/lib/utils"
 import { COLORS, MODELS } from "@/validators/option-validator"
 import { Configuration } from "@prisma/client"
 import { Check } from "lucide-react"
 import { useEffect, useState } from "react"
 import Confetti from "react-dom-confetti"
 
-const DesignPreview = ({configuration}: {configuration: Configuration}) => {
+const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
 
     const [showConfetti, setShowConfetti] = useState(false)
     useEffect(() => setShowConfetti(true))
 
-    const {color, model} = configuration
+    const { color, model, finish, material } = configuration
 
     const tw = COLORS.find((supportedColor) => supportedColor.value === color)?.tw
-    const {label: modellabel} = MODELS.options.find(({value}) => value === model)!
+    const { label: modellabel } = MODELS.options.find(({ value }) => value === model)!
 
     return (
         <>
@@ -40,11 +41,46 @@ const DesignPreview = ({configuration}: {configuration: Configuration}) => {
                                 Product Highlights
                             </p>
                             <ol className="mt-3 text-zinc-700 list-disc list-inside">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
+                                <li>Wireless Charging Compatible: Works seamlessly with MagSafe and other wireless chargers</li>
+                                <li>Slim Profile: Lightweight and easy to carry</li>
+                                <li>Warranty: 5 year print warranty</li>
+                                <li>Easy Installation: Quick snap-on design</li>
                             </ol>
+                        </div>
+                        <div>
+                            <p className="">Product Materials</p>
+                            <ol>
+                                <li>Durable Protection: Shockproof and drop-resistant</li>
+                                <li>Coating: Scratch and fingerprint resistant</li>
+                                <li>Precise Cutouts: Easy access to buttons and ports</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div className="mt-8">
+                        <div className="bg-gray-50 p-6 sm:rounded-lg sm:p-8">
+                            <div className="flow-root text-sm">
+                                <div className="flex items-center justify-between py-1 mt-2">
+                                    <p className="text-gray-600">Base Price</p>
+                                    <p className="font-medium text-gray-900">{formatPrice(BASE_PRICE / 100)}</p>
+                                </div>
+
+                                {finish === "textured" ? (
+                                    <div className="flex items-center justify-between py-1 mt-2">
+                                        <p className="text-gray-600">Textured Finish</p>
+                                        <p className="font-medium text-gray-900">{formatPrice(PRODUCT_PRICES.finish.textured / 100)}</p>
+                                    </div>
+                                ) : null}
+
+                                {material === "polycarbonate" ? (
+                                    <div className="flex items-center justify-between py-1 mt-2">
+                                        <p className="text-gray-600">Soft Polycarbonate Material</p>
+                                        <p className="font-medium text-gray-900">{formatPrice(PRODUCT_PRICES.material.polycarbonate / 100)}</p>
+                                    </div>
+                                ) : null}
+
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
