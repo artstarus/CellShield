@@ -1,3 +1,5 @@
+"use client"
+
 import Phone from "@/components/Phone"
 import { Button } from "@/components/ui/button"
 import { BASE_PRICE, PRODUCT_PRICES } from "@/config/products"
@@ -8,10 +10,21 @@ import { useMutation } from "@tanstack/react-query"
 import { ArrowRight, Check } from "lucide-react"
 import { useEffect, useState } from "react"
 import Confetti from "react-dom-confetti"
+import { createCheckoutSession } from "./actions"
+import { useRouter } from "next/navigation"
+import { useToast } from "@/hooks/use-toast"
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs"
+import LoginModal from "@/components/LoginModal"
 
 const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
 
-    const [showConfetti, setShowConfetti] = useState(false)
+    const router = useRouter()
+    const { toast } = useToast()
+    const { id } = configuration
+    const { user } = useKindeBrowserClient()
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false)
+
+    const [showConfetti, setShowConfetti] = useState<boolean>(false)
     useEffect(() => setShowConfetti(true))
 
     const { color, model, finish, material } = configuration
@@ -27,17 +40,41 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
         totalPrice += PRODUCT_PRICES.finish.textured
     }
 
-    const {} = useMutation({
+    const { mutate: createPaymentSession } = useMutation({
         mutationKey: ["get-checkout-session"],
-        mutationFn:
+        mutationFn: createCheckoutSession,
+        onSuccess: ({ url }) => {
+            if (url) {
+                router.push(url)
+            } else {
+                throw new Error("Unable to retrieve payment URL.")
+            }
+        },
+        onError: () => {
+            toast({
+                title: "Something went wrong.",
+                description: "There was an error on our end. Please try again.",
+                variant: "destructive",
+            })
+        }
     })
 
+    const handleCheckout = () => {
+        if (user) {
+            createPaymentSession({ configId: id })
+        } else {
+            localStorage.setItem("configurationId", id)
+            setIsLoginModalOpen(true)
+        }
+    }
 
     return (
         <>
             <div className="pointer-events-none select-none absolute inset-0 overflow-hidden flex justify-center" aria-hidden="true">
-                <Confetti active={showConfetti} config={{ elementCount: 300, spread: 100 }} />
+                <Confetti active={showConfetti} config={{ elementCount: 200, spread: 100 }} />
             </div>
+
+            <LoginModal isOpen={isLoginModalOpen} setIsOpen={setIsLoginModalOpen}/>
 
             <div className="mt-20 grid grid-cols-1 text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
                 <div className="sm:col-span-4 md:col-span-3 md:row-span-2 md:row-end-2">
@@ -57,18 +94,18 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                                 Product Highlights
                             </p>
                             <ol className="mt-3 text-zinc-700 list-disc list-inside">
-                                <li>Wireless Charging Compatible: Works seamlessly with MagSafe and other wireless chargers</li>
+                                <li>Wireless Charging: Seamless with MagSafe</li>
                                 <li>Slim Profile: Lightweight and easy to carry</li>
                                 <li>Warranty: 5 year print warranty</li>
                                 <li>Easy Installation: Quick snap-on design</li>
                             </ol>
                         </div>
                         <div>
-                            <p className="">Product Materials</p>
-                            <ol>
-                                <li>Durable Protection: Shockproof and drop-resistant</li>
+                            <p className="font-medium text-zinc-950">Product Materials</p>
+                            <ol className="mt-3 text-zinc-700 list-disc list-inside">
+                                <li> Shell: Shockproof and drop-resistant</li>
                                 <li>Coating: Scratch and fingerprint resistant</li>
-                                <li>Precise Cutouts: Easy access to buttons and ports</li>
+                                <li>Precise Cutouts: Access to buttons and ports</li>
                             </ol>
                         </div>
                     </div>
@@ -95,7 +132,7 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                                     </div>
                                 ) : null}
 
-                                <div className="my-2 h-px bg-gray-200"/>
+                                <div className="my-2 h-px bg-gray-200" />
                                 <div className="flex items-center justify-between py-2">
                                     <p className="font-semibold text-gray-900">Order Total</p>
                                     <p className="font-semibold text-gray-900">{formatPrice(totalPrice / 100)}</p>
@@ -104,9 +141,9 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
                         </div>
 
                         <div className="flex justify-end mt-8 pb-12">
-                                <Button className="px-4 sm:px-6 lg:px-8"> 
-                                    Check out <ArrowRight className="w-4 h-4 ml-1.5 inline"/>
-                                </Button>
+                            <Button className="px-4 sm:px-6 lg:px-8" onClick={() => handleCheckout()}>
+                                Check out <ArrowRight className="w-4 h-4 ml-1.5 inline" />
+                            </Button>
                         </div>
                     </div>
                 </div>
