@@ -13,7 +13,7 @@ const LoginModal = ({ isOpen, setIsOpen }: {
             <DialogContent className="absolute z-[9999999]">
                 <DialogHeader>
                     <div className="relative mx-auto w-24 h-24 mb-2">
-                        <Image src="/noimage.png" alt="no image" className="object-contain" fill />
+                        <Image src="/shield_3.png" alt="shield logo image" className="object-contain" fill />
                     </div>
                     <DialogTitle className="text-3xl text-center font-bold tracking-tight text-gray-900">
                         Log in to continue

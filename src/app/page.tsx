@@ -15,13 +15,13 @@ export default function Home() {
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
-                <img src="/noimage.png" alt="logo image" className="w-full" />
+                <img src="/shield_3.png" alt="shield logo image" className="w-full" />
               </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
                 Your Image on a <span className="bg-blue-600 px-2 text-white">Custom</span> Phone Case
               </h1>
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center text-balance lg:text-left md:text-wrap">
-                Preserve your cherished memories with a unique, <span className="font-semibold">custom-designed</span> phone case from 'COMPANY NAME'. We help you safeguard your precious moments, not just your phone.
+                Preserve your cherished memories with a unique, <span className="font-semibold">custom-designed</span> phone case. <span className="font-semibold">CellShield</span> helps you safeguard your precious moments, not just your phone.
               </p>
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
                 <div className="space-y-2">
@@ -41,11 +41,11 @@ export default function Home() {
               </ul>
               <div className="mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5">
                 <div className="flex -space-x-4">
-                  <Image src="/users/noavatar.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/noavatar.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/noavatar.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/noavatar.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/noavatar.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user1.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user2.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user3.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user4.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user5.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
                 </div>
                 <div className="flex flex-col justify-between items-center sm:items-start">
                   <div className="flex gap-0.5">
@@ -64,7 +64,7 @@ export default function Home() {
             <div className="relative md:max-w-xl">
               <img src="/your-image.png" alt="" className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block" />
               <img src="/line.png" alt="line image" className="absolute w-20 -left-6 -bottom-6 select-none" />
-              <Phone className="w-64" imgSrc="/testimonials/1.png" />
+              <Phone className="w-64" imgSrc="/fam.png" />
             </div>
           </div>
         </MaxWidthWrapper>
@@ -77,7 +77,7 @@ export default function Home() {
             <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
               What our <span className="relative px-2">customers <Icons.underline className="hidden sm:block pointer-events-none absolute inset-x-0 -bottom-6 text-blue-500" /> </span> have to say
             </h2>
-            <img src="/noimage.png" className="order-0 w-24 lg:order-2" />
+            <img src="/shield_1.png" className="order-0 w-24 lg:order-2" />
           </div>
           <div className="grid mx-auto max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
 
@@ -92,13 +92,13 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny, almost imperceptible mark on the edge, <span className="p-0.5 bg-slate-800 text-white">it still looks pristine after six months.</span> I'm genuinely impressed."
+                  "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny, almost imperceptible mark on the edge, <span className="p-0.5 bg-slate-800 text-white">it still looks pristine after six months.</span> I'm genuinely impressed!"
                 </p>
               </div>
               <div className="flex mt-2 gap-4">
-                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
+                <img src="/users/user2.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
                 <div className="flex flex-col">
-                  <p className="font-semibold">Theodore</p>
+                  <p className="font-semibold">Ava</p>
                   <div className="flex items-center gap-1.5 text-zinc-600">
                     <Check className="w-4 h-4 stroke-[3px] text-blue-600" />
                     <p className="text-sm">Verified Purchase</p>
@@ -123,7 +123,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex mt-2 gap-4">
-                <img src="/users/noavatar.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
+                <img src="/users/user4.png" alt="user image" className="rounded-full w-12 h-12 object-cover" />
                 <div className="flex flex-col">
                   <p className="font-semibold">Daniel</p>
                   <div className="flex items-center gap-1.5 text-zinc-600">
@@ -153,11 +153,11 @@ export default function Home() {
 
           <div className="mx-auto max-w-6xl px-6 lg:px-8">
             <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40">
-              <img src="/arrow.png" alt="arrow image" className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0"/>
+              <img src="/arrow.png" alt="arrow image" className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0" />
               <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
-                <img src="/noimage.png" alt="user image" className="object-cover rounded-md bg-white shadow-2xl ring-1 ring-gray-900/10 w-full h-full"/>
+                <img src="/fish.png" alt="user image" className="object-cover rounded-md bg-white shadow-2xl ring-1 ring-gray-900/10 w-full h-full" />
               </div>
-              <Phone className="w-60" imgSrc="/noimage.png"/>
+              <Phone className="w-60" imgSrc="/fish.png" />
             </div>
           </div>
 
@@ -183,7 +183,7 @@ export default function Home() {
               5 year print warranty
             </li>
             <div className="flex justify-center">
-              <Link href="/configure/upload" className={buttonVariants({size: "lg", className: "mx-auto mt-8"})}> Customize your case now <ArrowRight className="w-4 h-4 ml-1.5"/> </Link>
+              <Link href="/configure/upload" className={buttonVariants({ size: "lg", className: "mx-auto mt-8" })}> Customize your case now <ArrowRight className="w-4 h-4 ml-1.5" /> </Link>
             </div>
           </ul>
         </MaxWidthWrapper>

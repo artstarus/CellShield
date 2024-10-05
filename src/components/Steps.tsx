@@ -29,7 +29,7 @@ const Steps = () => {
             {STEPS.map((step, i) => {
                 const isCurrent = pathname.endsWith(step.url)
                 const isCompleted = STEPS.slice(i + 1).some((step) => pathname.endsWith(step.url))
-                const imgPath = `/noimage.png` //refactor later `/LOGOimage-${i + 1}.png`
+                const imgPath = `/shield_${i + 1}.png`
                 return <li key={step.name} className="relative overflow-hidden lg:flex-1">
                     <div>
                         <span className={cn("absolute left-0 top-0 h-full w-1 bg-zinc-400 lg:bottom-0 lg:top-auto lg:w-full lg:h-1",
