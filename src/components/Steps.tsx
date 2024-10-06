@@ -1,7 +1,6 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { steps } from "framer-motion"
 import { usePathname } from "next/navigation"
 
 const STEPS = [
