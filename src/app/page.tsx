@@ -41,11 +41,11 @@ export default function Home() {
               </ul>
               <div className="mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5">
                 <div className="flex -space-x-4">
-                  <Image src="/users/user1.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/user2.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/user3.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/user4.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
-                  <Image src="/users/user5.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100" />
+                  <Image src="/users/user1.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100 object-cover" />
+                  <Image src="/users/user2.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100 object-cover" />
+                  <Image src="/users/user3.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100 object-cover" />
+                  <Image src="/users/user4.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100 object-cover" />
+                  <Image src="/users/user5.png" alt="user image" width={10} height={10} className="inline-block h-10 w-10 rounded-full ring-2 ring-slated-100 object-cover" />
                 </div>
                 <div className="flex flex-col justify-between items-center sm:items-start">
                   <div className="flex gap-0.5">
@@ -92,7 +92,7 @@ export default function Home() {
               </div>
               <div className="text-lg leading-8">
                 <p>
-                  "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny, almost imperceptible mark on the edge, <span className="p-0.5 bg-slate-800 text-white">it still looks pristine after six months.</span> I'm genuinely impressed!"
+                  "I often carry my phone and keys together in the same pocket, which usually causes a lot of wear and tear on my phone cases. This one, though, has held up remarkably well. Aside from a tiny mark on the edge, <span className="p-0.5 bg-slate-800 text-white">it still looks pristine after six months.</span> I'm genuinely impressed!"
                 </p>
               </div>
               <div className="flex mt-2 gap-4">
