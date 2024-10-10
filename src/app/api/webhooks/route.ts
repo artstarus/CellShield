@@ -72,7 +72,7 @@ export async function POST(req: Request) {
       });
 
       await resend.emails.send({
-        from: "CellShield <artiomstarus@gmail.com>",
+        from: "CellShield <onboarding@resend.dev>",
         to: [event.data.object.customer_details.email],
         subject: "Thanks for your purchase!",
         react: OrderReceivedEmail({

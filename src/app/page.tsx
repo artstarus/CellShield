@@ -15,11 +15,11 @@ export default function Home() {
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
-                <div className="absolute bg-gradient-to-t via-slate-50/50 from-slate-50 inset-x-0 bottom-0 h-28" />
+                <div className="absolute bg-gradient-to-t via-slate-50/50 from-slate-50 inset-x-0 bottom-0 h-12" />
                 <img src="/shield_3.png" alt="shield logo image" className="w-full" />
               </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-gray-900 text-5xl md:text-6xl lg:text-7xl">
-                Your Image on a <span className="bg-blue-600 px-2 text-white">Custom</span> Phone Case
+                Your Image on a <span className="bg-blue-600 px-2 text-white rounded-xl">Custom</span> Phone Case
               </h1>
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center text-balance lg:text-left md:text-wrap">
                 Preserve your cherished memories with a unique, <span className="font-semibold">custom-designed</span> phone case. <span className="font-semibold">CellShield</span> helps you safeguard your precious moments, not just your phone.
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="mb-12 px-6 lg:px-8">
             <div className="mx-auto max-w-2xl sm:text-center">
               <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
-                Upload a photo and create <span className="relative px-2 text-white bg-blue-600"> your own personalized</span> case
+                Upload a photo and create <span className="rounded-xl relative px-2 text-white bg-blue-600"> your own</span> <span className="rounded-xl relative px-2 text-white bg-blue-600"> personalized</span> case
               </h2>
             </div>
           </div>
