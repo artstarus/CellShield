@@ -2,7 +2,7 @@ import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import { buttonVariants } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { RegisterLink, LoginLink, LogoutLink, getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const Navbar = async () => {
 
@@ -20,12 +20,12 @@ const Navbar = async () => {
                     <div className="h-full flex items-center space-x-4">
                         {user ? (
                             <>
-                                <Link href="/api/auth/logout" className={buttonVariants({
+                                <LogoutLink href="/api/auth/logout" className={buttonVariants({
                                     size: 'sm',
                                     variant: 'ghost'
                                 })}>
                                     Sign Out
-                                </Link>
+                                </LogoutLink>
                                 {/*check if admin */}
                                 {isAdmin ? <Link href="/dashboard" className={buttonVariants({
                                     size: 'sm',
@@ -43,18 +43,18 @@ const Navbar = async () => {
                             </>
                         ) : (
                             <>
-                                <Link href="/api/auth/register" className={buttonVariants({
+                                <RegisterLink href="/api/auth/register" className={buttonVariants({
                                     size: 'sm',
                                     variant: 'ghost'
                                 })}>
                                     Sign Up
-                                </Link>
-                                <Link href="/api/auth/login" className={buttonVariants({
+                                </RegisterLink>
+                                <LoginLink href="/api/auth/login" className={buttonVariants({
                                     size: 'sm',
                                     variant: 'ghost'
                                 })}>
                                     Login
-                                </Link>
+                                </LoginLink>
                                 <div className="w-px h-8 bg-zinc-200 hidden sm:block" />
                                 <Link href="/configure/upload" className={buttonVariants({
                                     size: 'sm',
