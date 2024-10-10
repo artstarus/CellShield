@@ -42,5 +42,6 @@ export function constructMetadata({
       creator: "@artiomstarus"
     },
     icons,
+    metadataBase: new URL("https://cellshield.vercel.app")
   }
 }
